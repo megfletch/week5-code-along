@@ -143,8 +143,23 @@ ggplot() +
   theme_light()
 ```
 
+### One-way ANOVA
 
+```{r}
+penguin_aov <- aov(flipper_length_mm ~ species, data = penguin_f)
+summary(penguin_aov)
 
+TukeyHSD(penguin_aov)
+```
+
+Type III ANOVA with the car package:
+```{r}
+penguin_lm <- lm(flipper_length_mm ~ species, data = penguin_f)
+penguin_aov_t3 <- Anova(penguin_lm, type = "III")
+penguin_aov_t3
+```
+
+## End of Code Along Week 5
 
 
 
